@@ -1,4 +1,4 @@
-Calculate descriptive Statistics for Monthly Revenue by Products
+1. Calculate descriptive Statistics for Monthly Revenue by Products
 
 WITH monthly_rev AS(
 SELECT
