@@ -1,6 +1,6 @@
 # Solve Real World Problems with SQL
 
-1 **Calculate the monthly minimum, maximum, average and standard deviation revenue for each product**.
+## Calculate the monthly minimum, maximum, average and standard deviation revenue for each product.
 **Insights obtained based on the query results**: The Expert product average revenue was much higher compared to the Basic product. This possibly could be because of expert product providing with more features compared to the Basic Product.
 Also from the standard deviation it was observed that the Expert product had more standard deviation showing more more variabilty compared to Basic products monthly revenue which was more centered on the mean.
 
