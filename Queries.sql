@@ -1,3 +1,4 @@
+Solved using CTE
 1. Calculate descriptive Statistics for Monthly Revenue by Products
 
 WITH monthly_rev AS(
@@ -75,7 +76,6 @@ SELECT
 		when maxstatus = 5 then 'Complete'
 		when maxstatus is null then 'User did not start payment process'
 		end as paymentfunnelstage
-
 FROM
     subscriptions
 LEFT JOIN 
