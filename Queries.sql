@@ -24,3 +24,28 @@ SELECT
 FROM monthly_rev
 GROUP BY
     productname
+
+
+2. Explore the variable Distribution
+
+WITH count_clicks_by_group AS(
+SELECT
+    UserID,
+    Count(ed.EventID) AS NUM_LINK_CLICKS,
+FROM 
+    FrontendEventDefinitions ed
+JOIN 
+    FrontendEventLog ee ON ed.EventID = ee.EventID
+Where
+    ed.EventID=5
+Group BY
+    UserID
+)
+
+Select 
+    NUM_LINK_CLICKS, 
+    Count(NUM_LINK_CLICKS) AS NUM_USERS 
+FROM 
+    count_clicks_by_group
+Group BY 
+    NUM_LINK_CLICKS
