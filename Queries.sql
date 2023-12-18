@@ -49,3 +49,40 @@ FROM
     count_clicks_by_group
 Group BY 
     NUM_LINK_CLICKS
+
+
+3. Payment Funnel Analysis
+
+With MaxStatusperSubscription AS (
+Select
+    subscriptionID,
+    MAX(StatusID) AS maxstatus
+FROM
+    paymentstatuslog p 
+GROUP BY 
+    subscriptionID
+)
+,
+PaymentFunnelStage AS (
+SELECT
+    subscriptions.subscriptionID,
+    case when maxstatus = 1 then 'PaymentWidgetOpened'
+		when maxstatus = 2 then 'PaymentEntered'
+		when maxstatus = 3 and subscriptions.currentstatus = 0 then 'User Error with Payment Submission'
+		when maxstatus = 3 and subscriptions.currentstatus != 0 then 'Payment Submitted'
+		when maxstatus = 4 and subscriptions.currentstatus = 0 then 'Payment Processing Error with Vendor'
+		when maxstatus = 4 and subscriptions.currentstatus != 0 then 'Payment Success'
+		when maxstatus = 5 then 'Complete'
+		when maxstatus is null then 'User did not start payment process'
+		end as paymentfunnelstage
+
+FROM
+    subscriptions
+LEFT JOIN 
+    MaxStatusperSubscription ON  subscriptions.subscriptionID = MaxStatusperSubscription.subscriptionID
+)
+
+SELECT
+    paymentfunnelstage,
+    COUNT(paymentfunnelstage) Subscriptions from PaymentFunnelStage
+GROUP BY  paymentfunnelstage
