@@ -8,7 +8,7 @@ Also from the standard deviation it was observed that the Expert product had mor
 
 ![Result 1](https://github.com/AnishSalvi1222/SQL-Data-Analysis/assets/104258169/6640cc64-02ae-4ebc-aa19-298f37be3fdc)
 
-## The manager of your team wants you to help him with a business problem by identifying the number of users that have clicked on a particular link with EventID = 5
-**Insights obtained based on the query results**: The results show that the count of users who click the link at least once is more in comparison to the users who have clicked the liked  multiple times.
+## The marketing team wants you to help them with a business problem of how the users are interacting with the email link by identifying the number of users that have clicked on a particular link with EventID = 5
+**Insights obtained based on the query results**: The results show that half of the users have turned back to the link and have clicked it twice.
 
 ![Result 2](https://github.com/AnishSalvi1222/SQL-Data-Analysis/assets/104258169/bd6b7f51-a2f3-428a-9a79-84d4931eba06)
